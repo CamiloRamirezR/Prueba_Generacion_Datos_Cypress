@@ -20,7 +20,7 @@ describe("Edición del campo Publish date con una fecha y hora superior a la act
     adminMenu.pageTab.click();
     cy.wait(1000);
 
-    mockarooService("p037").then((res) => {
+    mockarooService("p038").then((res) => {
       // Crea la página a editar
       const title = res.body.title;
       const content = res.body.body;
@@ -53,7 +53,7 @@ describe("Edición del campo Publish date con una fecha y hora superior a la act
       */
       // Verificar que salga el error correspondiente
       pageSection.DateTimePickerError.should("be.visible").contains(
-        "Must be in the past"
+        "Invalid date format, must be YYYY-MM-DD"
       );
     });
   });
