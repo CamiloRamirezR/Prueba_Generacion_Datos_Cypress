@@ -35,6 +35,14 @@ export default class PageSection {
     return cy.get("textarea[name='post-setting-custom-excerpt']");
   }
 
+  get getDateField() {
+    return cy.get("input[placeholder='YYYY-MM-DD']");
+  }
+
+  get getTimeField() {
+    return cy.get(".gh-date-time-picker-time > input");
+  }
+
   get editorSettingsCloseButton() {
     return cy.get("button[aria-label='Close']");
   }
