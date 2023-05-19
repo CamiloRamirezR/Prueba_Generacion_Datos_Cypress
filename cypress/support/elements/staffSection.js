@@ -49,7 +49,9 @@ export default class StaffSection {
     get emailField() {
         return cy.get('input[placeholder="Email Address"]');
     }
-
+    get noFormatEmailAlert() {
+        return cy.get('p').contains('Please supply a valid email address');
+    }
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
