@@ -15,7 +15,7 @@ export default class PostSection {
     return cy.get("input[placeholder='YYYY-MM-DD']");
   }
   get settingsTimePickerError() {
-    return cy.get("span.gh-date-time-picker-error");
+    return cy.get("div.gh-date-time-picker-error");
   }
   get contentCover() {
     return cy.get(".content-cover");

@@ -8,8 +8,8 @@ const postSection = new PostSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Edición del campo Publish date con la fecha y hora actual", () => {
-  it("Edición del campo Publish date con la fecha y hora actual", () => {
+describe("Edición del campo Publish date con día siguiente a la fecha actual", () => {
+  it("Edición del campo Publish date con día siguiente a la fecha actual", () => {
     /* 
     -------------
       GIVEN
@@ -45,22 +45,17 @@ describe("Edición del campo Publish date con la fecha y hora actual", () => {
     postSection.editorSettingsButton.click();
     postSection.settingsPublishDate.click();
 
-    postSection.settingsPublishDate.clear().type(new Date().toLocaleDateString('en-CA'), {parseSpecialCharSequences: false});
-    postSection.settingsExerpt.click()
-
-    cy.wait(2000);
-    postSection.settingsTimePickerError.should('not.exist')
-    postSection.contentCover.click()
-    postSection.editorUpdateDropdown.click();
-    postSection.editorUpdateButton.click();
-    cy.wait(3000);
+    const date = new Date();
+    date.setDate(date.getDate() + 1);
+    postSection.settingsPublishDate.clear().type(date.toLocaleDateString('en-CA'), {parseSpecialCharSequences: false});
+    postSection.settingsPublishDate.blur()
 
     /* 
     -------------
       THEN
     -------------
     */
-    // Verifica que el la notificacion de exito esté visible
-    site.notificationUpdateSuccess.should('exist');
+    // Verifica que el mensaje de error exista
+    postSection.settingsTimePickerError.should('exist')
   });
 });
