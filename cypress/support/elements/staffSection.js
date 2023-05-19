@@ -43,6 +43,10 @@ export default class StaffSection {
         return cy.get('p').contains('Please enter a name.');
     }
 
+    get nameTooLongAlert() {
+        return cy.get('p').contains('Name is too long');
+    }
+
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
