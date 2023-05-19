@@ -18,6 +18,9 @@ export default class Site {
   get postContent() {
     return cy.get("section.post-full-content");
   }
+  get notificationUpdateSuccess() {
+    return cy.get("span.gh-notification-title");
+  }
 
   get page404() {
     return cy.get("h1").contains("404");
