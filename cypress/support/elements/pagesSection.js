@@ -35,6 +35,10 @@ export default class PageSection {
     return cy.get("textarea[name='post-setting-custom-excerpt']");
   }
 
+  get DateTimePickerError() {
+    return cy.get(".gh-date-time-picker-error");
+  }
+
   get getDateField() {
     return cy.get("input[placeholder='YYYY-MM-DD']");
   }
