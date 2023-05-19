@@ -1,14 +1,13 @@
 import AdminMenu from "../../support/elements/adminMenu";
 import StaffSection from "../../support/elements/staffSection";
-import { faker } from "@faker-js/faker";
+import jsonData from "./data/P092.json";
 
 const adminMenu = new AdminMenu();
 const staffSection = new StaffSection();
-const firtName = faker.name.firstName();
-const lastName = faker.name.lastName();
-const fullName = `${firtName} ${lastName}`;
-describe('Editar nombre de usuario', () => {
-    it('Editar el nombre de usuario del perfil Ghost y guardar los cambios', () => {
+const name = jsonData.name;
+
+describe("Editar nombre de usuario", () => {
+    it('Editar el nombre de usuario del perfil de Ghost con un expresión regular de 191 carácteres', () => {
         /*
 -------------
 GIVEN
@@ -25,22 +24,23 @@ GIVEN
 -------------
 WHEN
 -------------
-*/
+         */
         // Editar el nombre de usuario del perfil Ghost
         staffSection.nameField.clear();
         cy.wait(1000);
-        staffSection.nameField.type(fullName, { force: true });
+        staffSection.nameField.type(name, { force: true });
         cy.wait(1000);
         // Guardar cambios
         staffSection.saveChanges.click();
+        cy.wait(1000);
         /*
-		-------------
-		THEN
-		-------------
-		*/
+-------------
+THEN
+-------------
+         */
         // Verificar que el nombre de usuario se haya editado correctamente
         cy.reload();
-        staffSection.nameField.should('have.value', fullName);
+        staffSection.nameField.should('have.value', name);
         // Retornar a condiciones iniciales
         staffSection.nameField.clear();
         cy.wait(1000);
