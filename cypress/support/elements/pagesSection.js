@@ -1,4 +1,3 @@
-import { mockarooService } from "../services";
 export default class PageSection {
   get newPageButton() {
     return cy.get("a").contains("New page");
@@ -30,6 +29,14 @@ export default class PageSection {
 
   get editorSettingsButton() {
     return cy.get("button[title='Settings']");
+  }
+
+  get getExcerptField() {
+    return cy.get("textarea[name='post-setting-custom-excerpt']");
+  }
+
+  get editorSettingsCloseButton() {
+    return cy.get("button[aria-label='Close']");
   }
 
   get editorDeletePageButton() {
