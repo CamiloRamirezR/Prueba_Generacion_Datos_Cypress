@@ -35,3 +35,5 @@
 
 **Nota:** Los nombres de los scripts corresponden con el identificador de cada escenario de prueba. Para conocer qué identificador corresponde a cada escenario, por favor consulte el [siguiente enlace](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EQLNOAClGmZPqHEsnikAkTwBQ5vvZPJeeqVltoQnUci4pw?e=cdxguH).
 
+## Descriptión de las estrategias usadas
+Se encuentra [en la wiki](https://github.com/CamiloRamirezR/Prueba_Generacion_Datos_Cypress/wiki)
