@@ -1,10 +1,11 @@
 import AdminMenu from "../../support/elements/adminMenu";
 import StaffSection from "../../support/elements/staffSection";
+import jsonData from "./data/P108.json";
 
 
 const adminMenu = new AdminMenu();
 const staffSection = new StaffSection();
-const name = ' ';
+const name = jsonData.name;
 const fbProfile = 'https://www.facebook.com/' + name;
 
 describe("Editar Facebook de usuario", () => {

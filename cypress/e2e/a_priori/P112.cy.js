@@ -1,9 +1,10 @@
 import AdminMenu from "../../support/elements/adminMenu";
 import StaffSection from "../../support/elements/staffSection";
+import jsonData from "./data/P112.json";
 
 const adminMenu = new AdminMenu();
 const staffSection = new StaffSection();
-const bio = ' ';
+const bio = jsonData.bio;
 
 describe("Editar biografía de usuario", () => {
     it('Editar la biografía de usuario con un string nulo', () => {
