@@ -129,6 +129,18 @@ export default class TagSection {
     this.editorContainerDescription.type(content);
   } 
 
+  createTagMockarooDataDescription(title, slug) {
+    this.newTagButton.click();
+    this.editorContainerTitle.type(title); 
+    cy.wait(2000);   
+    this.editorContainerSlug.click();
+    this.editorContainerTitle.click();    
+    this.editorContainerSlug.clear();    
+    this.editorContainerSlug.click();
+    this.editorContainerTitle.click();    
+    this.editorContainerSlug.type(slug);
+  } 
+
   getDataTagMockaroo(testMockarooData) {
     const tagData = this.dataMockaroo(testMockarooData);
     return tagData;
