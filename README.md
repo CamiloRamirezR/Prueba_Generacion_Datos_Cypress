@@ -1,4 +1,4 @@
-# Pruebas E2E en Cypress
+# Pruebas generación de datos en Cypress
 
 ## Pre-requisitos y pasos previos:
 - Node.js v14.18.0
@@ -30,10 +30,7 @@
 ![image](https://user-images.githubusercontent.com/17149432/236364140-09b8c0e1-d937-4b30-a6cf-1ed9caf925f2.png)
 5. Oprimir el botón **Start E2E Testing in Chrome**.
 6. Aparecerá un navegador con los scripts disponibles para ejecutar:
-![image](https://user-images.githubusercontent.com/17149432/236364324-ae425d21-29e6-4c9b-bf31-2ced190cc312.png)
+![image](https://github.com/CamiloRamirezR/Prueba_Generacion_Datos_Cypress/assets/17149432/8b70f9ee-2d16-42f1-81e8-74d4883f1a4e)
 7. Escoger el script de interés, esto empezará a correr la prueba.
 
-**Nota:** Los nombres de los scripts corresponden con el identificador de cada escenario de prueba. Para conocer qué identificador corresponde a cada escenario, por favor consulte el [siguiente enlace](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EQLNOAClGmZPqHEsnikAkTwBQ5vvZPJeeqVltoQnUci4pw?e=cdxguH).
-
-## Descripción de las estrategias usadas
-Se encuentra [en la wiki](https://github.com/CamiloRamirezR/Prueba_Generacion_Datos_Cypress/wiki)
+**Nota:** Los nombres de los scripts corresponden con el identificador de cada escenario de prueba. Para conocer qué identificador corresponde a cada escenario, por favor consulte el [siguiente enlace](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EQLNOAClGmZPqHEsnikAkTwBQ5vvZPJeeqVltoQnUci4pw?e=LltiaR)
