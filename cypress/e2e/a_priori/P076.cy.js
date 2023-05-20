@@ -3,8 +3,8 @@ import { faker } from "@faker-js/faker";
 import PostSection from "../../support/elements/postsSection";
 import AdminMenu from "../../support/elements/adminMenu";
 import Site from "../../support/elements/site";
-import {generateRandomNum} from "../../support/utilities";
-import jsonData from "./data/P068.json";
+import { generateRandomNum } from "../../support/utilities";
+import jsonData from "./data/P076.json";
 
 const postSection = new PostSection();
 const adminMenu = new AdminMenu();
@@ -32,8 +32,8 @@ describe("Edición únicamente del título de un post con 256 caracteres normale
     */
 
     // Crea el post
-    const title = faker.lorem.lines(1);
-    let content = faker.lorem.paragraphs(1);
+    const title = jsonData.title;
+    let content = jsonData.content;
     postSection.createPost(title, content);
 
     // Publica el post
@@ -44,7 +44,7 @@ describe("Edición únicamente del título de un post con 256 caracteres normale
     postSection.postInList(title).click();
 
     // Edita el titulo
-    const newTitle = jsonData.title;
+    const newTitle = jsonData.newTitle;
 
     postSection.editorContainerTitle.clear().type(newTitle);
     postSection.editorUpdateDropdown.click();
