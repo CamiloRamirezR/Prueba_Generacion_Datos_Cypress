@@ -14,4 +14,8 @@ export default class GeneralSection {
   get saveButton() {
     return cy.get(".view-actions button");
   }
+
+  get errorMessage() {
+    return cy.get(".response");
+  }
 }
