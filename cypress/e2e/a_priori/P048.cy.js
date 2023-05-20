@@ -6,7 +6,7 @@ import jsonData from "./data/P048.json";
 
 const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
-const site = new Site();
+const baseUrl = Cypress.config("baseUrl");
 
 describe("Crear Tag con 191 carácteres en el Slug", () => {
   it("Crear Tag con 191 carácteres en el Slug", () => {
@@ -28,25 +28,23 @@ describe("Crear Tag con 191 carácteres en el Slug", () => {
     -------------
     */
 
-    // Información crea la tag    
+    // Información crea la tag
     // Puedes acceder a los valores individualmente
     const title = jsonData.title;
     const slug = jsonData.slug;
     const description = jsonData.description;
     // intenta publicar el tag
-    tagSection.createTagMockarooData(title,slug, description) ;
+    tagSection.createTagMockarooData(title, slug, description);
     tagSection.saveTag.click();
     /* 
     -------------
       THEN
     -------------
     */
-   
+
     // Verifica que el tag aparezca en el listado de tags
-    adminMenu.tagTab.click();
-    cy.url().then(basAeUrl => {
-      cy.log(basAeUrl);
-      cy.visit(basAeUrl + ('/') + slug.toLowerCase());
-    });
+    cy.wait(1000);
+    cy.reload();
+    tagSection.editorContainerSlug.should("have.value", slug.toLowerCase());
   });
 });
