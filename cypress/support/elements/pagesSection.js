@@ -1,4 +1,3 @@
-import { mockarooService } from "../services";
 export default class PageSection {
   get newPageButton() {
     return cy.get("a").contains("New page");
@@ -30,6 +29,26 @@ export default class PageSection {
 
   get editorSettingsButton() {
     return cy.get("button[title='Settings']");
+  }
+
+  get getExcerptField() {
+    return cy.get("textarea[name='post-setting-custom-excerpt']");
+  }
+
+  get DateTimePickerError() {
+    return cy.get(".gh-date-time-picker-error");
+  }
+
+  get getDateField() {
+    return cy.get("input[placeholder='YYYY-MM-DD']");
+  }
+
+  get getTimeField() {
+    return cy.get(".gh-date-time-picker-time > input");
+  }
+
+  get editorSettingsCloseButton() {
+    return cy.get("button[aria-label='Close']");
   }
 
   get editorDeletePageButton() {

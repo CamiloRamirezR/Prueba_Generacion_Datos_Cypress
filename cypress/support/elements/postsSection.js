@@ -10,6 +10,13 @@ export default class PostSection {
   get settingsExerpt() {
     return cy.get("textarea.post-setting-custom-excerpt");
   }
+
+  get settingsPublishDate() {
+    return cy.get("input[placeholder='YYYY-MM-DD']");
+  }
+  get settingsTimePickerError() {
+    return cy.get("div.gh-date-time-picker-error");
+  }
   get contentCover() {
     return cy.get(".content-cover");
   }

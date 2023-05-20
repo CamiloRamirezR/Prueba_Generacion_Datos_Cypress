@@ -43,6 +43,15 @@ export default class StaffSection {
         return cy.get('p').contains('Please enter a name.');
     }
 
+    get nameTooLongAlert() {
+        return cy.get('p').contains('Name is too long');
+    }
+    get emailField() {
+        return cy.get('input[placeholder="Email Address"]');
+    }
+    get noFormatEmailAlert() {
+        return cy.get('p').contains('Please supply a valid email address');
+    }
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
