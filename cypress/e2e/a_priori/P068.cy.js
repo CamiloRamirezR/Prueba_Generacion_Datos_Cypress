@@ -32,9 +32,8 @@ describe("Publicación de un post nueva con título de 256 caracteres normales."
     */
 
     // Crea el post
-    const randomNum = generateRandomNum(999);
-    const title = jsonData[randomNum].title;
-    let content = jsonData[randomNum].content;
+    const title = jsonData.title;
+    let content = jsonData.content;
     postSection.createPost(title, content);
 
     // Publica el post
