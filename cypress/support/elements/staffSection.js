@@ -55,6 +55,9 @@ export default class StaffSection {
     get userLocationField() {
         return cy.get('input[id="user-location"]');
     }
+    get locationTooLongAlert() {
+        return cy.get('p').contains('Location is too long');
+    }
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
