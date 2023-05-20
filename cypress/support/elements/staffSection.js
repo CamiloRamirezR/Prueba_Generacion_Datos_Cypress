@@ -67,6 +67,19 @@ export default class StaffSection {
     get noFormatWebsiteAlert() {
         return cy.get('p').contains('Website is not a valid url');
     }
+    get facebookField() {
+        return cy.get('input[id="user-facebook"]');
+    }
+    get noFormatFacebookAlert() {
+        return cy.get('p').contains('Facebook Profile is not a valid url');
+    }
+    get noProfileFacebookAlert() {
+        return cy.get('div').contains('object null is not iterable (cannot read property Symbol(Symbol.iterator))');
+    }
+    get twitterField() {
+        return cy.get('input[id="user-twitter"]');
+    }
+
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
