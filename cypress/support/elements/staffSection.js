@@ -79,6 +79,9 @@ export default class StaffSection {
     get bioField() {
         return cy.get('textarea[id="user-bio"]');
     }
+    get bioTooLongAlert() {
+        return cy.get('p').contains('Bio is too long');
+    }
     get twitterField() {
         return cy.get('input[id="user-twitter"]');
     }
