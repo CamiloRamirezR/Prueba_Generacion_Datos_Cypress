@@ -11,6 +11,10 @@ export default class AdminMenu {
     return cy.get("a").contains("Posts");
   }
 
+  get generalTab() {
+    return cy.get("a").contains("General");
+  }
+
   get tagTab() {
     return cy.get("a").contains("Tags");
   }

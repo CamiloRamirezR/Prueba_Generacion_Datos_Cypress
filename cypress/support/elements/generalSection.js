@@ -14,4 +14,12 @@ export default class GeneralSection {
   get saveButton() {
     return cy.get(".view-actions button");
   }
+
+    get savedSettingsButton() {
+        return cy.get("button").contains("Saved");
+    }
+
+    buscarError(mensaje) {
+        return cy.get('p.response').contains(mensaje)
+    }
 }
