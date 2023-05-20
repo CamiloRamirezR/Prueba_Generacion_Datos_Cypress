@@ -72,6 +72,13 @@ export default class TagSection {
     this.editorContainerTitle.clear().type(title, {force: true});
   }
 
+  updateTagSlug(slug) {
+  this.editorContainerSlug.clear();    
+    this.editorContainerSlug.click();
+    this.editorContainerTitle.click();    
+    this.editorContainerSlug.type(slug);  
+  }
+
   urlMockaroo (testMockaroo)
   { 
     const apiKey = 'e7649c20';
