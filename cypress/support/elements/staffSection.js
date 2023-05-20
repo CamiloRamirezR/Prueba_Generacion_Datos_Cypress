@@ -58,6 +58,9 @@ export default class StaffSection {
     get locationTooLongAlert() {
         return cy.get('p').contains('Location is too long');
     }
+    get noFormatLocationAlert() {
+        return cy.get('p').contains('Location is invalid');
+    }
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }

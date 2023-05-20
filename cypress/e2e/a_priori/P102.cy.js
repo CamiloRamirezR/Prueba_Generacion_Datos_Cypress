@@ -1,13 +1,13 @@
 import AdminMenu from "../../support/elements/adminMenu";
 import StaffSection from "../../support/elements/staffSection";
-import jsonData from "./data/P101.json";
+import jsonData from "./data/P102.json";
 
 const adminMenu = new AdminMenu();
 const staffSection = new StaffSection();
 const location = jsonData.location;
 
 describe("Editar location de usuario", () => {
-    it('Editar el location de usuario con un string de 151 caracteres', () => {
+    it('Editar el location de usuario con caracteres especiales', () => {
         /*
     -------------
     GIVEN
@@ -38,7 +38,7 @@ describe("Editar location de usuario", () => {
     -------------
          */
         // Validar que APAREZCA el mensaje de error
-        staffSection.locationTooLongAlert.should('be.visible');
+        staffSection.noFormatLocationAlert.should('be.visible');
         // Verificar que el botón de guardar cambios esté deshabilitado
         staffSection.saveChanges.should('not.exist');
         // Retornar a condiciones iniciales
@@ -46,5 +46,6 @@ describe("Editar location de usuario", () => {
         cy.wait(1000);
         staffSection.userLocationField.type('Earth', { force: true });
         staffSection.saveRetry.click();
+
     });
 });
