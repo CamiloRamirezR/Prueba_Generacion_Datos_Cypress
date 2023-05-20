@@ -7,8 +7,22 @@ export default class TagSection {
       return cy.get("button").contains("Save");
   }
 
+  get slackTag() {
+    //return cy.get("button").contains("Save");
+    return cy.get('a.ember-view[href="#/settings/integrations/slack/"]')
+    //return cy.get('apps-card-left',  {force : true});
+}
+
   get editorContainerTitle() {
     return cy.get('#tag-name',  {force : true});
+  }
+
+  get editorContainerURL() {
+    return cy.get('input[name="slack[url]"].ember-text-field.gh-input',  {force : true});
+  }
+
+  get editorContainerUser() {
+    return cy.get('input[name="slack[username]"].ember-text-field.gh-input',  {force : true});
   }
 
   get editorContainerSlug() {
@@ -68,6 +82,17 @@ export default class TagSection {
     this.editorContainerDescription.type(content);
   }
 
+  createHeader(URL, user) {
+    cy.wait(1000);
+
+    this.editorContainerURL.clear();
+    this.editorContainerURL.type(URL);
+    this.editorContainerUser.clear();
+    this.editorContainerUser.type(user);
+    
+    cy.wait(2000);
+  }
+
   updateTag(title) {
     this.editorContainerTitle.clear().type(title, {force: true});
   }
@@ -108,6 +133,17 @@ export default class TagSection {
         title,
         slug,
         description
+      };
+    });
+  }
+
+  getDinamicCodeMockaroo(testMockaroo) { 
+    return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+      const { URL, user } = response.body;
+  
+      return {
+        URL,
+        user
       };
     });
   }
