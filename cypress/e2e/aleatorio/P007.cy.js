@@ -50,7 +50,7 @@ describe("Publicación de una existente página en estado 'Borrador' y validaci�
 
     // Verifica que la página aparezca en la lista de páginas con el estado "Published"
     pageSection.goBackToPagesSection.click();
-    const page = pageSection.pageInList(title);
+    const page = pageSection.pagesInList(title);
     page.contains("Published");
     page.click();
 

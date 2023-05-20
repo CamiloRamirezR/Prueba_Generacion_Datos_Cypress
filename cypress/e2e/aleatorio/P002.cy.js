@@ -50,7 +50,7 @@ describe("Publicación de un existente post en estado 'Borrador' y validación d
 
     // Verifica que el post aparezca en la lista de posts con el estado "Published"
     postSection.goBackToPostsSection.click();
-    const post = postSection.postInList(title);
+    const post = postSection.postsInList(title);
     post.contains("Published");
     post.click();
 
