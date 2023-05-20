@@ -2,6 +2,7 @@ import TagSection from "../../support/elements/tagSection";
 //import AdminMenu from "../support/elements/adminMenu";
 import AdminMenu from "../../support/elements/adminMenu";
 import Site from "../../support/elements/site";
+import jsonData from "./data/P044.json";
 
 const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
@@ -26,15 +27,10 @@ describe("Crear Tag con 191 carácteres en el titulo", () => {
       WHEN
     -------------
     */
-
-    // Información crea la tag
-    const testMockarooData = 'P044.json';
-    const testData =  tagSection.getDataTagMockaroo(testMockarooData);
-    
     // Puedes acceder a los valores individualmente
-    const title = testData.title;
-    const slug = (testData.slug).toLowerCase();
-    const description = testData.Description;
+    const title = jsonData.title;
+    const slug = jsonData.slug;
+    const description = jsonData.description;
     // intenta publicar el tag
     tagSection.createTagMockarooData(title,slug, description) ;
     tagSection.saveTag.click();

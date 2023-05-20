@@ -44,8 +44,7 @@ describe("Edición únicamente del título de un post con 255 caracteres normale
     postSection.postInList(title).click();
 
     // Edita el titulo
-    const randomNum = generateRandomNum(19);
-    const newTitle = jsonData[randomNum].title;
+    const newTitle = jsonData.title;
 
     postSection.editorContainerTitle.clear().type(newTitle);
     postSection.editorUpdateDropdown.click();

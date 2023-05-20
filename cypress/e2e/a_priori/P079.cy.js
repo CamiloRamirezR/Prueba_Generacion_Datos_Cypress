@@ -46,8 +46,7 @@ describe("Edición del campo Excerpt con 300 caracteres", () => {
     // Edita el exerpt
     postSection.editorSettingsButton.click();
     postSection.settingsExerpt.click();
-    const randomNum = generateRandomNum(999);
-    const exerpt = jsonData[randomNum].exerpt300;
+    const exerpt = jsonData.exerpt300;
 
     postSection.settingsExerpt.clear().type(exerpt);
     postSection.contentCover.click()

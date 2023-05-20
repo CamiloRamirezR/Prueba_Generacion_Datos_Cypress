@@ -46,8 +46,7 @@ describe("Edición del campo Excerpt con caracteres especiales", () => {
     // Edita el exerpt
     postSection.editorSettingsButton.click();
     postSection.settingsExerpt.click();
-    const randomNum = generateRandomNum(999);
-    const exerpt = jsonData[randomNum].exerptSpecial;
+    const exerpt = jsonData.exerptSpecial;
 
     postSection.settingsExerpt.clear().type(exerpt, {parseSpecialCharSequences:false});
     postSection.contentCover.click()

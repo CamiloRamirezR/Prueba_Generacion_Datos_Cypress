@@ -2,14 +2,14 @@ import TagSection from "../../support/elements/tagSection";
 //import AdminMenu from "../support/elements/adminMenu";
 import AdminMenu from "../../support/elements/adminMenu";
 import Site from "../../support/elements/site";
-import jsonData from "./data/P046.json";
+import jsonData from "./data/P050.json";
 
 const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Crear Tag con titulo vacio.", () => {
-  it("Crear Tag con titulo vacio.", () => {
+describe("Crear Tag con Slug vacio", () => {
+  it("Crear Tag con Slug vacio", () => {
     /* 
     -------------
       GIVEN
@@ -28,22 +28,26 @@ describe("Crear Tag con titulo vacio.", () => {
     -------------
     */
 
-    // Información crea la tag   
-    // Puedes acceder a los valores individualmente    
+    // Información crea la tag    
+    // Puedes acceder a los valores individualmente
+    const title = jsonData.title;
     const slug = jsonData.slug;
     const description = jsonData.description;
-
     // intenta publicar el tag
-    tagSection.createTagMockarooDataTitle(slug, description) ;
+    tagSection.createTagMockarooData(title,slug, description) ;
     tagSection.saveTag.click();
     /* 
     -------------
       THEN
     -------------
     */
-    // Verifica que aparezca el mensaje de error
-    cy.wait(1000);
-    tagSection.msgErrorTitleEmpty;
+   
+    // Verifica que el tag aparezca en el listado de tags
+    adminMenu.tagTab.click();
+    cy.url().then(basAeUrl => {
+      cy.log(basAeUrl);
+      cy.visit(basAeUrl + ('/') + title.toLowerCase());
+    });
     cy.wait(2000);
   });
 });
