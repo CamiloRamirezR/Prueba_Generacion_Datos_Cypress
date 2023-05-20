@@ -1,9 +1,6 @@
-import { faker } from "@faker-js/faker";
-
 import PostSection from "../../support/elements/postsSection";
 import AdminMenu from "../../support/elements/adminMenu";
 import Site from "../../support/elements/site";
-import {generateRandomNum} from "../../support/utilities";
 import jsonData from "./data/post_settings.json";
 
 const postSection = new PostSection();
@@ -32,8 +29,8 @@ describe("Edición del campo Excerpt con caracteres especiales", () => {
     */
 
     // Crea el post
-    const title = faker.lorem.lines(1);
-    let content = faker.lorem.paragraphs(1);
+    const title = jsonData.title;
+    let content = jsonData.content;
     postSection.createPost(title, content);
 
     // Publica el post
@@ -48,8 +45,10 @@ describe("Edición del campo Excerpt con caracteres especiales", () => {
     postSection.settingsExerpt.click();
     const exerpt = jsonData.exerptSpecial;
 
-    postSection.settingsExerpt.clear().type(exerpt, {parseSpecialCharSequences:false});
-    postSection.contentCover.click()
+    postSection.settingsExerpt
+      .clear()
+      .type(exerpt, { parseSpecialCharSequences: false });
+    postSection.contentCover.click();
     postSection.editorUpdateDropdown.click();
     postSection.editorUpdateButton.click();
     cy.wait(3000);
