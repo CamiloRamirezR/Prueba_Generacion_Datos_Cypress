@@ -2,7 +2,7 @@ export default class AdminMenu {
   get pageTab() {
     return cy.get("a").contains("Pages");
   }
-  
+
   get staffTab() {
     return cy.get("a").contains("Staff");
   }
@@ -19,5 +19,7 @@ export default class AdminMenu {
     return cy.get("a").contains("Design");
   }
 
-
+  get generalTab() {
+    return cy.get("a").contains("General");
+  }
 }
