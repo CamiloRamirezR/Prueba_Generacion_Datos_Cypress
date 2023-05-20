@@ -22,28 +22,27 @@ describe("Edición únicamente del titulo de una página existente con caractere
     adminMenu.pageTab.click();
     cy.wait(1000);
 
-    // Crea la página a editar
-    const title = "Página a editar";
-    const content = "Contenido página a editar";
+    // Edita el título de una página con caracteres especiales
+    mockarooService("p028").then((res) => {
+      // Crea la página a editar
+      const title = res.body.title;
+      const content = res.body.body;
 
-    pageSection.createPage(title, content);
+      pageSection.createPage(title, content);
 
-    // Publica la página
-    pageSection.publishPage();
-    pageSection.goBackToPagesSection.click();
+      // Publica la página
+      pageSection.publishPage();
+      pageSection.goBackToPagesSection.click();
 
-    /* 
+      /* 
     -------------
       WHEN
     -------------
     */
 
-    // Selecciona la página a editar
-    pageSection.pageInList(title).click();
-
-    // Edita el título de una página con caracteres especiales
-    mockarooService("p028").then((res) => {
-      const newTitle = res.body.title;
+      // Selecciona la página a editar
+      pageSection.pageInList(title).click();
+      const newTitle = res.body.newTitle;
 
       pageSection.editorContainerTitle.clear().type(newTitle);
       pageSection.editorUpdateDropdown.click();
