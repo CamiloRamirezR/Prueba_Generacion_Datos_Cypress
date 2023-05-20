@@ -76,6 +76,9 @@ export default class StaffSection {
     get noProfileFacebookAlert() {
         return cy.get('div').contains('object null is not iterable (cannot read property Symbol(Symbol.iterator))');
     }
+    get bioField() {
+        return cy.get('textarea[id="user-bio"]');
+    }
     get twitterField() {
         return cy.get('input[id="user-twitter"]');
     }
