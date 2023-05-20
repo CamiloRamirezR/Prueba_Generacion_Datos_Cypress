@@ -8,8 +8,8 @@ const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Crear Tag con 191 carácteres en el Slug", () => {
-  it("Crear Tag con 191 carácteres en el Slug", () => {
+describe("Crear Tag con Slug vacio", () => {
+  it("Crear Tag con Slug vacio", () => {
     /* 
     -------------
       GIVEN
