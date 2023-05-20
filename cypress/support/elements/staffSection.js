@@ -70,6 +70,9 @@ export default class StaffSection {
     get facebookField() {
         return cy.get('input[id="user-facebook"]');
     }
+    get noFormatFacebookAlert() {
+        return cy.get('p').contains('Facebook Profile is not a valid url');
+    }
     get twitterField() {
         return cy.get('input[id="user-twitter"]');
     }
