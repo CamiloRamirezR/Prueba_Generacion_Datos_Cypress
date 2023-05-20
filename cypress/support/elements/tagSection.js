@@ -79,6 +79,10 @@ export default class TagSection {
     this.editorContainerSlug.type(slug);  
   }
 
+  updateTagSlugEmpty() {
+    this.editorContainerSlug.clear();
+  }
+
   updateTagDescription(content) {
     this.editorContainerDescription.clear();
     this.editorContainerTitle.click();  
