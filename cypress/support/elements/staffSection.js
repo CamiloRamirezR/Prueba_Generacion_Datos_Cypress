@@ -52,6 +52,15 @@ export default class StaffSection {
     get noFormatEmailAlert() {
         return cy.get('p').contains('Please supply a valid email address');
     }
+    get userLocationField() {
+        return cy.get('input[id="user-location"]');
+    }
+    get locationTooLongAlert() {
+        return cy.get('p').contains('Location is too long');
+    }
+    get noFormatLocationAlert() {
+        return cy.get('p').contains('Location is invalid');
+    }
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
