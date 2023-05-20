@@ -6,8 +6,8 @@ const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Crear Tag con 192 carácteres en el titulo.", () => {
-  it("Crear Tag con 192 carácteres en el titulo.", () => {
+describe("Editar Tag con 192 carácteres en el titulo", () => {
+  it("Editar Tag con 192 carácteres en el titulo", () => {
     /* 
     -------------
       GIVEN
@@ -36,7 +36,7 @@ describe("Crear Tag con 192 carácteres en el titulo.", () => {
       const description = tagData.description;
       const title = "Titulo a Modificar";
 
-      tagSection.createTag(title, slug, description);
+      tagSection.createTagMockarooData(title, slug, description);
       tagSection.saveTag.click();
       // Verifica que el tag aparezca en el listado de tags
       adminMenu.tagTab.click();

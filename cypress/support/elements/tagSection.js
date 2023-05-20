@@ -81,12 +81,12 @@ export default class TagSection {
 
   getDinamicTagMockaroo(testMockaroo) { 
     return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
-      const { title, slug, Description } = response.body;
+      const { title, slug, description } = response.body;
   
       return {
         title,
         slug,
-        description: Description
+        description
       };
     });
   }
