@@ -142,6 +142,19 @@ export default class TagSection {
     this.editorContainerDescription.type(content);
   } 
 
+
+  editTagMockarooDataTitle(slug , content) {    
+    cy.wait(2000);   
+    this.editorContainerTitle.clear(); 
+    this.editorContainerSlug.click();
+    this.editorContainerTitle.click();    
+    this.editorContainerSlug.clear();    
+    this.editorContainerSlug.click();
+    this.editorContainerTitle.click();    
+    this.editorContainerSlug.type(slug);    
+    this.editorContainerDescription.type(content);
+  }
+
   createTagMockarooDataDescription(title, slug) {
     this.newTagButton.click();
     this.editorContainerTitle.type(title); 
