@@ -79,35 +79,19 @@ export default class TagSection {
     return (URL)
   }
 
-  /*createTagMockaroo(testMockaroo) {
-    this.newTagButton.click();
-    cy.wait(1000);      
-    
-    cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
-    const title = response.body[0].title;
-    const slug = response.body[0].slug;
-    const description = response.body[0].Description;
-
-    this.editorContainerTitle.type(title);
-    this.editorContainerSlug.type(slug);
-    this.editorContainerDescription.type(description);
-    });
-  }
-  */
-
   getDinamicTagMockaroo(testMockaroo) { 
     return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
-      const title = response.body[0].title;
-      const slug = response.body[0].slug;
-      const description = response.body[0].Description;
+      const { title, slug, Description } = response.body;
   
       return {
         title,
         slug,
-        description
+        description: Description
       };
     });
   }
+
+
 
   dataMockaroo (testMockarooData)
   { 
@@ -146,7 +130,7 @@ export default class TagSection {
   } 
 
   getDataTagMockaroo(testMockarooData) {
-    const tagData = this.dataMockaroo(testMockarooData)[0];
+    const tagData = this.dataMockaroo(testMockarooData);
     return tagData;
   }
 

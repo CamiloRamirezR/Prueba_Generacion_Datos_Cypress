@@ -2,6 +2,7 @@ import TagSection from "../../support/elements/tagSection";
 //import AdminMenu from "../support/elements/adminMenu";
 import AdminMenu from "../../support/elements/adminMenu";
 import Site from "../../support/elements/site";
+import jsonData from "./data/P046.json";
 
 const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
@@ -27,13 +28,11 @@ describe("Crear Tag con titulo vacio.", () => {
     -------------
     */
 
-    // Información crea la tag
-    const testMockarooData = 'P046.json';
-    const testData =  tagSection.getDataTagMockaroo(testMockarooData);
-    
+    // Información crea la tag   
     // Puedes acceder a los valores individualmente    
-    const slug = (testData.slug).toLowerCase();
-    const description = testData.Description;
+    const slug = jsonData.title;
+    const description = jsonData.title;
+
     // intenta publicar el tag
     tagSection.createTagMockarooDataTitle(slug, description) ;
     tagSection.saveTag.click();
