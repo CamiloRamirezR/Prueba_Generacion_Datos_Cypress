@@ -83,6 +83,12 @@ export default class PageSection {
       .children(".gh-post-list-featured");
   }
 
+  pagesInList(title) {
+    return cy
+      .get("li.gh-list-row.gh-posts-list-item")
+      .filter(`:contains(${title})`)
+  }
+
   notPageInList(title) {
     return cy
       .get("li.gh-list-row.gh-posts-list-item")
