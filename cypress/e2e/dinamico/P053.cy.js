@@ -35,7 +35,7 @@ describe("Crear Tag con carácteres especiales en la descripción.", () => {
       const slug = tagData.slug;
       const description = tagData.description;      
       
-      cy.log(title)
+      cy.log(description)
 
       tagSection.createTagMockarooData(title, slug, description);  
       cy.wait(2000);    
