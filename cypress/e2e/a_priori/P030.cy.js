@@ -21,7 +21,7 @@ describe("Edición únicamente del título de una página con 256 caracteres nor
     cy.wait(1000);
 
     // Crea la página a editar
-    const title = "Página a editar";
+    const title = jsonData.title;
     const content = jsonData.body;
 
     pageSection.createPage(title, content);
@@ -40,7 +40,7 @@ describe("Edición únicamente del título de una página con 256 caracteres nor
     pageSection.pageInList(title).click();
 
     // Edita el título de una página con caracteres especiales
-    const newTitle = jsonData.title;
+    const newTitle = jsonData.newTitle;
 
     pageSection.editorContainerTitle.clear().type(newTitle);
     pageSection.editorUpdateDropdown.click();
