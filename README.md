@@ -1,4 +1,4 @@
-# Pruebas generación de datos en Cypress
+# Pruebas con generación de datos en Cypress
 
 ## Pre-requisitos y pasos previos:
 - Node.js v14.18.0
