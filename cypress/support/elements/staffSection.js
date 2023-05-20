@@ -61,6 +61,12 @@ export default class StaffSection {
     get noFormatLocationAlert() {
         return cy.get('p').contains('Location is invalid');
     }
+    get websiteField() {
+        return cy.get('input[id="user-website"]');
+    }
+    get noFormatWebsiteAlert() {
+        return cy.get('p').contains('Website is not a valid url');
+    }
     get editorContainerPass() {
         return cy.get('#user-password-new');
     }
