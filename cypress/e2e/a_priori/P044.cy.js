@@ -29,8 +29,8 @@ describe("Crear Tag con 191 carácteres en el titulo", () => {
     */
     // Puedes acceder a los valores individualmente
     const title = jsonData.title;
-    const slug = jsonData.title;
-    const description = jsonData.title;
+    const slug = jsonData.slug;
+    const description = jsonData.description;
     // intenta publicar el tag
     tagSection.createTagMockarooData(title,slug, description) ;
     tagSection.saveTag.click();
