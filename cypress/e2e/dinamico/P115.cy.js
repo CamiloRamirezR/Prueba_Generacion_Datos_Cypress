@@ -6,8 +6,8 @@ const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Crear Tag con 192 carácteres en el titulo.", () => {
-  it("Crear Tag con 192 carácteres en el titulo.", () => {
+describe("Agregar usuario slack .", () => {
+  it("Agregar usuario slack .", () => {
     /* 
     -------------
       GIVEN
