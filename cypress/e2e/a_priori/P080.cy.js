@@ -1,14 +1,10 @@
-import { faker } from "@faker-js/faker";
-
 import PostSection from "../../support/elements/postsSection";
 import AdminMenu from "../../support/elements/adminMenu";
 import Site from "../../support/elements/site";
-import {generateRandomNum} from "../../support/utilities";
 import jsonData from "./data/post_settings.json";
 
 const postSection = new PostSection();
 const adminMenu = new AdminMenu();
-const site = new Site();
 
 describe("Edición del campo Excerpt con 301 caracteres", () => {
   it("Edición del campo Excerpt con 301 caracteres", () => {
@@ -32,8 +28,8 @@ describe("Edición del campo Excerpt con 301 caracteres", () => {
     */
 
     // Crea el post
-    const title = faker.lorem.lines(1);
-    let content = faker.lorem.paragraphs(1);
+    const title = jsonData.title;
+    let content = jsonData.content;
     postSection.createPost(title, content);
 
     // Publica el post
@@ -49,7 +45,7 @@ describe("Edición del campo Excerpt con 301 caracteres", () => {
     const exerpt = jsonData.exerpt301;
 
     postSection.settingsExerpt.clear().type(exerpt);
-    postSection.contentCover.click()
+    postSection.contentCover.click();
     postSection.editorUpdateDropdown.click();
     postSection.editorUpdateButton.click();
     cy.wait(3000);
@@ -60,6 +56,6 @@ describe("Edición del campo Excerpt con 301 caracteres", () => {
     -------------
     */
     // Verifica que aparezca mensaje de error
-    postSection.buscarError("Excerpt cannot be longer than 300 characters")
+    postSection.buscarError("Excerpt cannot be longer than 300 characters");
   });
 });
