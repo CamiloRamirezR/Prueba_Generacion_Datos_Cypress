@@ -46,11 +46,13 @@ describe("Edición del campo Publish date con una fecha y hora superior a la act
       pageSection.getTimeField.scrollIntoView().clear();
       pageSection.getTimeField.type(time);
       cy.wait(1000);
+
       /* 
       -------------
         THEN
       -------------
       */
+
       // Verificar que salga el error correspondiente
       pageSection.DateTimePickerError.should("be.visible").contains(
         "Must be in the past"
