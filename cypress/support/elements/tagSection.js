@@ -73,10 +73,16 @@ export default class TagSection {
   }
 
   updateTagSlug(slug) {
-  this.editorContainerSlug.clear();    
+    this.editorContainerSlug.clear();    
     this.editorContainerSlug.click();
     this.editorContainerTitle.click();    
     this.editorContainerSlug.type(slug);  
+  }
+
+  updateTagDescription(content) {
+    this.editorContainerDescription.clear();
+    this.editorContainerTitle.click();  
+    this.editorContainerDescription.type(content);
   }
 
   urlMockaroo (testMockaroo)
