@@ -1,12 +1,13 @@
 import AdminMenu from "../../support/elements/adminMenu";
 import DesignSection from "../../support/elements/designSection";
+import { faker } from "@faker-js/faker";
 
 const adminMenu = new AdminMenu();
 const designSection = new DesignSection();
-const label = "AnotherHome";
+const label = faker.word.noun();
 
 describe("Agregar link de navegación", () => {
-  it("Agregar un nuevo link de navegación con Label AnotherHome", () => {
+  it("Agregar un nuevo link de navegación con label aleatorio", () => {
     /*
 -------------
 GIVEN
