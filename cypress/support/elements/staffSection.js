@@ -73,6 +73,9 @@ export default class StaffSection {
     get noFormatFacebookAlert() {
         return cy.get('p').contains('Facebook Profile is not a valid url');
     }
+    get noProfileFacebookAlert() {
+        return cy.get('div').contains('object null is not iterable (cannot read property Symbol(Symbol.iterator))');
+    }
     get twitterField() {
         return cy.get('input[id="user-twitter"]');
     }
