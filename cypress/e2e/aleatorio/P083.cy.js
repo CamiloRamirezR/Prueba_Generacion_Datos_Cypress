@@ -8,8 +8,8 @@ const postSection = new PostSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Edición del campo Publish date con día siguiente a la fecha actual", () => {
-  it("Edición del campo Publish date con día siguiente a la fecha actual", () => {
+describe("Edición del campo Publish date con fecha superior a la fecha actual", () => {
+  it("Edición del campo Publish date con fecha superior a la fecha actual", () => {
     /* 
     -------------
       GIVEN
@@ -45,10 +45,13 @@ describe("Edición del campo Publish date con día siguiente a la fecha actual",
     postSection.editorSettingsButton.click();
     postSection.settingsPublishDate.click();
 
-    const date = new Date();
-    date.setDate(date.getDate() + 1);
-    postSection.settingsPublishDate.clear().type(date.toLocaleDateString('en-CA'), {parseSpecialCharSequences: false});
-    postSection.settingsPublishDate.blur()
+    const date = faker.date.future();
+    postSection.settingsPublishDate
+      .clear()
+      .type(date.toLocaleDateString("en-CA"), {
+        parseSpecialCharSequences: false,
+      });
+    postSection.settingsPublishDate.blur();
 
     /* 
     -------------
@@ -56,6 +59,6 @@ describe("Edición del campo Publish date con día siguiente a la fecha actual",
     -------------
     */
     // Verifica que el mensaje de error exista
-    postSection.settingsTimePickerError.should('exist')
+    postSection.settingsTimePickerError.should("exist");
   });
 });
