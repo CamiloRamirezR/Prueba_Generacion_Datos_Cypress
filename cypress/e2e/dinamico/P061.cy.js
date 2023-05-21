@@ -6,8 +6,8 @@ const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Editar Tag con carácteres especiales en el Slug", () => {
-  it("Editar Tag con carácteres especiales en el Slug", () => {
+describe("Agregar usuario slack  con carácteres especiales Username", () => {
+  it("Agregar usuario slack  con carácteres especiales Username", () => {
     /* 
     -------------
       GIVEN
@@ -18,7 +18,7 @@ describe("Editar Tag con carácteres especiales en el Slug", () => {
     cy.login();
 
     // Va a la pestaña Tags
-    adminMenu.tagTab.click();
+    adminMenu.tagIntegrations.click();
     cy.wait(1000);
 
     /* 
@@ -27,41 +27,29 @@ describe("Editar Tag con carácteres especiales en el Slug", () => {
     -------------
     */
 
-    // Información crea la tag
+    // Agrgar información SLACK
     const testMockaroo = '/p061.json';
-
-    tagSection.getDinamicTagMockaroo(testMockaroo).then((tagData) => {
-        const title = tagData.title;
-        const newSlug = tagData.slug;
-        const description = tagData.description;
-        const slug = "slugnew";
-  
-        tagSection.createTagMockarooData(title, slug, description);
-        tagSection.saveTag.click();
-        // Verifica que el tag aparezca en el listado de tags
-        adminMenu.tagTab.click();
-        cy.wait(1000);
-        cy.url().then(basAeUrl => {
-          cy.log(basAeUrl);
-          cy.visit(basAeUrl + ('/') + slug.toLowerCase());
-        });
-        cy.wait(2000);  
-        // Actualiza el titulo
-        tagSection.updateTagSlug(newSlug);
-        cy.wait(1000);
-        tagSection.saveTag.click();
+    tagSection.getDinamicCodeMockaroo(testMockaroo).then((tagData) => {
+    const URL = tagData.URL;
+    const user = tagData.user;
+    cy.log(URL);
+    cy.log(user);
+    tagSection.slackTag.click();
+    tagSection.createHeader(URL, user);
+      
+    tagSection.saveTag.click();
       /* 
-          /* 
-    -------------
-      THEN
-    -------------
-    */   
-    // Verifica que el tag aparezca en el listado de tags
-        adminMenu.tagTab.click();
-        cy.wait(1000);
-        tagSection.tagInList(title).click();
-        cy.wait(2000);      
-
+      -------------
+        THEN
+      -------------
+      */   
+      // Verifica que aparezca el usuario de slack creado
+      cy.wait(1000);
+      adminMenu.tagIntegrations.click();
+      tagSection.slackTag.click();
+      cy.wait(2000);
     });
+    
+
   });
 });

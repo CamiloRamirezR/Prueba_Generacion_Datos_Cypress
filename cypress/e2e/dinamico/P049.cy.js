@@ -6,8 +6,8 @@ const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Agregar usuario slack .", () => {
-  it("Agregar usuario slack .", () => {
+describe("Agregar usuario slack  con carácteres especiales URL", () => {
+  it("Agregar usuario slack  con carácteres especiales URL", () => {
     /* 
     -------------
       GIVEN
