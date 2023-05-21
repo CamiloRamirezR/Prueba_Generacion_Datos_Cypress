@@ -44,7 +44,9 @@ describe("Edición únicamente del titulo de una página existente con caractere
       pageSection.pageInList(title).click();
       const newTitle = res.body.newTitle;
 
-      pageSection.editorContainerTitle.clear().type(newTitle);
+      pageSection.editorContainerTitle.clear();
+      cy.wait(2000);
+      pageSection.editorContainerTitle.type(newTitle);
       pageSection.editorUpdateDropdown.click();
       pageSection.editorUpdateButton.click();
       cy.wait(3000);
