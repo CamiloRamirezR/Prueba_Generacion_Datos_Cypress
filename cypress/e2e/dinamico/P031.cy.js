@@ -22,30 +22,31 @@ describe("Edición únicamente del cuerpo de una página existente con caractere
     adminMenu.pageTab.click();
     cy.wait(1000);
 
-    // Crea la página a editar
-    const title = "Página a editar con caracteres especiales";
-    const content = "Contenido página a editar";
+    // Edita el título de una página con caracteres especiales
+    mockarooService("p031").then((res) => {
+      // Crea la página a editar
+      const title = res.body.title;
+      const content = res.body.body;
 
-    pageSection.createPage(title, content);
+      pageSection.createPage(title, content);
 
-    // Publica la página
-    pageSection.publishPage();
-    pageSection.goBackToPagesSection.click();
+      // Publica la página
+      pageSection.publishPage();
+      pageSection.goBackToPagesSection.click();
 
-    /* 
+      /* 
     -------------
       WHEN
     -------------
     */
 
-    // Selecciona la página a editar
-    pageSection.pageInList(title).click();
+      // Selecciona la página a editar
+      pageSection.pageInList(title).click();
+      const newBody = res.body.newBody;
 
-    // Edita el título de una página con caracteres especiales
-    mockarooService("p031").then((res) => {
-      const newBody = res.body.body;
-
-      pageSection.editorContainerBody.clear().type(newBody);
+      pageSection.editorContainerBody.clear();
+      cy.wait(2000);
+      pageSection.editorContainerBody.type(newBody);
       pageSection.editorUpdateDropdown.click();
       pageSection.editorUpdateButton.click();
       cy.wait(3000);
