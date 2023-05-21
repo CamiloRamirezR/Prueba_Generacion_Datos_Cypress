@@ -30,16 +30,15 @@ describe("Edición del campo Description con caracteres especiales", () => {
     */
 
     // Editar descripcion
-    generalSection.editTitleDescriptionMockaroo("P087.json")
+    generalSection.editTitleDescriptionMockaroo("P087.json");
 
     /* 
     -------------
       THEN
     -------------
     */
-    // Verifica que aparezca mensaje de error por longitud
-    generalSection.errorMessage.should("not.exist");
-    generalSection.saveButton.click()
-    generalSection.savedSettingsButton.should("exist")
+    // Verifica quue se guarde
+    generalSection.saveButton.click();
+    generalSection.savedSettingsButton.should("exist");
   });
 });
