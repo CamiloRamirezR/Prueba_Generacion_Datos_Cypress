@@ -86,7 +86,7 @@ export default class PageSection {
   pagesInList(title) {
     return cy
       .get("li.gh-list-row.gh-posts-list-item")
-      .filter(`:contains(${title})`)
+      .filter(`:contains(${title})`);
   }
 
   notPageInList(title) {
@@ -106,12 +106,10 @@ export default class PageSection {
     this.newPageButton.click();
     cy.wait(1000);
     this.editorContainerTitle.click();
-    if (title) {
-      this.editorContainerTitle.type(title);
-    }
+
+    title && this.editorContainerTitle.type(title);
+
     this.editorContainerBody.click();
-    if (content) {
-      this.editorContainerBody.type(content);
-    }
+    content && this.editorContainerBody.type(content);
   }
 }
