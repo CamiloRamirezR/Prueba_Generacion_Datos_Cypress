@@ -24,7 +24,7 @@ describe("Edición únicamente del cuerpo dejándolo vacío.", () => {
 
     // Crea la página a editar
     const title = jsonData.title;
-    const content = "Contenido a editar";
+    const content = jsonData.body;
 
     pageSection.createPage(title, content);
 
