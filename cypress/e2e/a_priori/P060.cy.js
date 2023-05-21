@@ -57,6 +57,7 @@ describe("Editar Tag con 191 carácteres en el Slug", () => {
     */
    
     // Verifica que el tag aparezca en el listado de tags
+    cy.wait(1000);
     cy.reload();
     tagSection.editorContainerSlug.should("have.value", slug.toLowerCase());
   });
