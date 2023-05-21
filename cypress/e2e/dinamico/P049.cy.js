@@ -6,8 +6,8 @@ const tagSection = new TagSection();
 const adminMenu = new AdminMenu();
 const site = new Site();
 
-describe("Crear Tag con carácteres especiales en el Slug.", () => {
-  it("Crear Tag con carácteres especiales en el Slug.", () => {
+describe("Agregar usuario slack .", () => {
+  it("Agregar usuario slack .", () => {
     /* 
     -------------
       GIVEN
@@ -18,7 +18,7 @@ describe("Crear Tag con carácteres especiales en el Slug.", () => {
     cy.login();
 
     // Va a la pestaña Tags
-    adminMenu.tagTab.click();
+    adminMenu.tagIntegrations.click();
     cy.wait(1000);
 
     /* 
@@ -27,35 +27,28 @@ describe("Crear Tag con carácteres especiales en el Slug.", () => {
     -------------
     */
 
-    // Información crea la tag
+    // Agrgar información SLACK
     const testMockaroo = '/p049.json';
-
-    tagSection.getDinamicTagMockaroo(testMockaroo).then((tagData) => {
-      const title = tagData.title;
-      const slug = tagData.slug;
-      const description = tagData.description;      
+    tagSection.getDinamicCodeMockaroo(testMockaroo).then((tagData) => {
+    const URL = tagData.URL;
+    const user = tagData.user;
+    cy.log(URL);
+    cy.log(user);
+    tagSection.slackTag.click();
+    tagSection.createHeader(URL, user);
       
-      cy.log(title)
-
-      tagSection.createTagMockarooData(title, slug, description);  
-      cy.wait(2000);    
-      tagSection.saveTag.click();
+    tagSection.saveTag.click();
+      /* 
+      -------------
+        THEN
+      -------------
+      */   
+      // Verifica que aparezca el usuario de slack creado
+      cy.wait(1000);
+      tagSection.editorRetryTagButton;
       cy.wait(2000);
-
-          /* 
-    -------------
-      THEN
-    -------------
-    */   
-    // Verifica que el tag aparezca en el listado de tags
-        adminMenu.tagTab.click();
-        cy.wait(1000);
-        cy.url().then(basAeUrl => {
-          cy.log(basAeUrl);
-          cy.visit(basAeUrl + ('/') + slug.toLowerCase());
-        });
-        cy.wait(2000);      
-
     });
+    
+
   });
 });
