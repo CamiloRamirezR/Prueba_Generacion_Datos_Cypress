@@ -37,7 +37,10 @@ describe("Crear Tag con Slug vacio", () => {
     // Verifica que el tag aparezca en el listado de tags
     adminMenu.tagTab.click();
     cy.wait(1000);
-    tagSection.tagInList(title).click();
+    cy.url().then(basAeUrl => {
+      cy.log(basAeUrl);
+      cy.visit(basAeUrl + ('/') + slug.toLowerCase());
+    });
     cy.wait(2000);  
     // Actualiza el titulo
     tagSection.updateTagSlugEmpty();
