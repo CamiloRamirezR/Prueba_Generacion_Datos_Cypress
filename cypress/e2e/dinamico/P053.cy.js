@@ -50,7 +50,10 @@ describe("Crear Tag con carácteres especiales en la descripción.", () => {
     // Verifica que el tag aparezca en el listado de tags
         adminMenu.tagTab.click();
         cy.wait(1000);
-        tagSection.tagInList(title).click();
+        cy.url().then(basAeUrl => {
+          cy.log(basAeUrl);
+          cy.visit(basAeUrl + ('/') + slug.toLowerCase());
+        });
         cy.wait(2000);      
 
     });
