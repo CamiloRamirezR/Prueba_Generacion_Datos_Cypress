@@ -35,6 +35,6 @@ THEN
 -------------
 */
     // Verificar existencia de nuevo url
-    designSection.verifyNewLabel;
+    designSection.verifyNewLabel(label);
   });
 });
