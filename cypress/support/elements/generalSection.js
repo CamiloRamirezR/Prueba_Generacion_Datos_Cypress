@@ -34,6 +34,12 @@ export default class GeneralSection {
     return URL;
   }
 
+  createDesc(text) {
+    cy.wait(1000);
+    this.titleDescriptionDescInput.type(text);
+    cy.wait(2000);
+  }
+
   editTitleDescriptionMockaroo(testMockaroo) {
     cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
       const description = response.body[0].description;

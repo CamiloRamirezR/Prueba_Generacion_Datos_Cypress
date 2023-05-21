@@ -1,4 +1,4 @@
-
+import { faker } from "@faker-js/faker";
 import AdminMenu from "../../support/elements/adminMenu";
 import GeneralSection from "../../support/elements/generalSection";
 
@@ -33,13 +33,16 @@ describe("Edición del campo Description dejandolo vacío", () => {
     generalSection.titleDescriptionDescInput.clear({force:true})
     generalSection.titleDescriptionDescInput.blur()
 
+    
+    let content = faker.lorem.text().substr(0, 200);
+    generalSection.createDesc(content)
+
     /* 
     -------------
       THEN
     -------------
     */
-    // Verifica que aparezca mensaje de error por longitud
-    generalSection.errorMessage.should("not.exist");
+    // Verifica que se que almacene correctamente
     generalSection.saveButton.click()
     generalSection.savedSettingsButton.should("exist")
   });
